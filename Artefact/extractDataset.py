@@ -1,9 +1,9 @@
-from shutil import copyfile
 from PIL import Image
 import os
         
 inputDir1 = ('.\digits-train-5000')
 inputDir2 = ('.\digits-validation-1000')
+inputDir3 = ('.\digits-test-500')
 
 outTrainDir0 = ('.\dataset\\training\\0')
 outTrainDir1 = ('.\dataset\\training\\1')
@@ -26,6 +26,17 @@ outValidDir6 = ('.\dataset\\validation\\6')
 outValidDir7 = ('.\dataset\\validation\\7')
 outValidDir8 = ('.\dataset\\validation\\8')
 outValidDir9 = ('.\dataset\\validation\\9')
+
+outTestDir0 = ('.\dataset\\test\\0')
+outTestDir1 = ('.\dataset\\test\\1')
+outTestDir2 = ('.\dataset\\test\\2')
+outTestDir3 = ('.\dataset\\test\\3')
+outTestDir4 = ('.\dataset\\test\\4')
+outTestDir5 = ('.\dataset\\test\\5')
+outTestDir6 = ('.\dataset\\test\\6')
+outTestDir7 = ('.\dataset\\test\\7')
+outTestDir8 = ('.\dataset\\test\\8')
+outTestDir9 = ('.\dataset\\test\\9')
 
 if not os.path.exists(outTrainDir0):
     os.makedirs(outTrainDir0)
@@ -68,7 +79,29 @@ if not os.path.exists(outValidDir8):
     os.makedirs(outValidDir8)
 if not os.path.exists(outValidDir9):
     os.makedirs(outValidDir9)
-        
+    
+if not os.path.exists(outTestDir0):
+    os.makedirs(outTestDir0)
+if not os.path.exists(outTestDir1):
+    os.makedirs(outTestDir1)
+if not os.path.exists(outTestDir2):
+    os.makedirs(outTestDir2)
+if not os.path.exists(outTestDir3):
+    os.makedirs(outTestDir3)
+if not os.path.exists(outTestDir4):
+    os.makedirs(outTestDir4)
+if not os.path.exists(outTestDir5):
+    os.makedirs(outTestDir5)
+if not os.path.exists(outTestDir6):
+    os.makedirs(outTestDir6)
+if not os.path.exists(outTestDir7):
+    os.makedirs(outTestDir7)
+if not os.path.exists(outTestDir8):
+    os.makedirs(outTestDir8)
+if not os.path.exists(outTestDir9):
+    os.makedirs(outTestDir9)
+    
+    
 for file in os.listdir(inputDir1):
     fileName = os.fsdecode(file)
     selectedNumber = int(fileName[0])
@@ -141,6 +174,44 @@ for file in os.listdir(inputDir2):
         im.save(newFilePath)
     elif (selectedNumber == 9):
         newFilePath = outValidDir9 + '\\' + fileName
+        im.save(newFilePath)
+    else:
+        continue    
+    
+for file in os.listdir(inputDir3):
+    fileName = os.fsdecode(file)
+    selectedNumber = int(fileName[0])
+    selectedFilePath = inputDir3 + '\\' + fileName
+    im = Image.open(selectedFilePath)
+    if (selectedNumber == 0):
+        newFilePath = outTestDir0 + '\\' + fileName
+        im.save(newFilePath)
+    elif (selectedNumber == 1):
+        newFilePath = outTestDir1 + '\\' + fileName
+        im.save(newFilePath)
+    elif (selectedNumber == 2):
+        newFilePath = outTestDir2 + '\\' + fileName
+        im.save(newFilePath)
+    elif (selectedNumber == 3):
+        newFilePath = outTestDir3 + '\\' + fileName
+        im.save(newFilePath)
+    elif (selectedNumber == 4):
+        newFilePath = outTestDir4 + '\\' + fileName
+        im.save(newFilePath)
+    elif (selectedNumber == 5):
+        newFilePath = outTestDir5 + '\\' + fileName
+        im.save(newFilePath)
+    elif (selectedNumber == 6):
+        newFilePath = outTestDir6 + '\\' + fileName
+        im.save(newFilePath)
+    elif (selectedNumber == 7):
+        newFilePath = outTestDir7 + '\\' + fileName
+        im.save(newFilePath)
+    elif (selectedNumber == 8):
+        newFilePath = outTestDir8 + '\\' + fileName
+        im.save(newFilePath)
+    elif (selectedNumber == 9):
+        newFilePath = outTestDir9 + '\\' + fileName
         im.save(newFilePath)
     else:
         continue    
